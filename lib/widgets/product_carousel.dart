@@ -29,6 +29,7 @@ class ProductCarousel extends StatelessWidget {
             ),
             child: ProductCard(
               product: products[index],
+              widthFactor: 2.5,
             ),
           );
         }),

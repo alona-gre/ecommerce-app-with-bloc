@@ -41,7 +41,7 @@ class Product extends Equatable {
       name: 'Soft drink #2',
       category: 'Soft drinks',
       imageUrl:
-          'https://media.istockphoto.com/id/455647401/photo/green-beverage.jpg?s=612x612&w=0&k=20&c=rplcUla55EWVAm421W7hFLbKTwGHvckuLtaRe6hdjIA=',
+          'https://upload.wikimedia.org/wikipedia/commons/0/05/Orangejuice.jpg',
       price: 2.45,
       isRecommended: false,
       isPopular: true,
@@ -50,7 +50,7 @@ class Product extends Equatable {
       name: 'Soft drink #3',
       category: 'Soft drinks',
       imageUrl:
-          'https://media.istockphoto.com/id/455647401/photo/green-beverage.jpg?s=612x612&w=0&k=20&c=rplcUla55EWVAm421W7hFLbKTwGHvckuLtaRe6hdjIA=',
+          'https://www.alphafoodie.com/wp-content/uploads/2021/08/Strawberry-Juice-Square.jpg',
       price: 1.95,
       isRecommended: true,
       isPopular: true,

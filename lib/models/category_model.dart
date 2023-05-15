@@ -17,7 +17,7 @@ class Category extends Equatable {
 
   static List<Category> categories = [
     const Category(
-        name: 'Soft Drink',
+        name: 'Soft drinks',
         imageUrl:
             'https://media.istockphoto.com/id/533575209/photo/soft-drink-being-poured-into-glass.jpg?s=612x612&w=0&k=20&c=OPfGgxIkH_6j-ozfWol5RxypTAIZSmkR3NL-qsJ7_Qk='),
     const Category(
