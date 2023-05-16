@@ -150,7 +150,5 @@ class ProductScreen extends StatelessWidget {
         ),
       ]),
     );
-
-    //HeroCarouselCard(product: product));
   }
 }
