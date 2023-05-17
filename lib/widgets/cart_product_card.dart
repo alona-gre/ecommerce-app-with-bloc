@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/cart/cart_bloc.dart';
 import '../models/product_model.dart';
 
 class CartProductCard extends StatelessWidget {
@@ -35,23 +37,39 @@ class CartProductCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10.0),
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.remove_circle,
-                ),
-              ),
-              Text('1', style: Theme.of(context).textTheme.labelLarge),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.add_circle,
-                ),
-              ),
-            ],
-          ),
+          BlocBuilder<CartBloc, CartState>(builder: (context, state) {
+            //we don't let the user to add to cart while loading
+            if (state is CartLoading) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            if (state is CartLoaded) {
+              return Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      context
+                          .read<CartBloc>()
+                          .add(RemoveProductFromCart(product));
+                    },
+                    icon: const Icon(
+                      Icons.remove_circle,
+                    ),
+                  ),
+                  Text('1', style: Theme.of(context).textTheme.labelLarge),
+                  IconButton(
+                    onPressed: () {
+                      context.read<CartBloc>().add(AddProductToCart(product));
+                    },
+                    icon: const Icon(
+                      Icons.add_circle,
+                    ),
+                  ),
+                ],
+              );
+            } else {
+              return const Text('Something went wrong');
+            }
+          }),
           const SizedBox(width: 10.0),
         ],
       ),
