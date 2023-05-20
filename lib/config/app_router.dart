@@ -7,6 +7,7 @@ import '../models/product_model.dart';
 import '../screens/catalog/catalog_screen.dart';
 import '../screens/product/product_screen.dart';
 import '../screens/wishlist/wishlist_screen.dart';
+import '../splash/splash_screen.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
@@ -17,6 +18,8 @@ class AppRouter {
         return HomeScreen.route();
       case HomeScreen.routeName:
         return HomeScreen.route();
+      case SplashScreen.routeName:
+        return SplashScreen.route();
 
       case CartScreen.routeName:
         return CartScreen.route();
