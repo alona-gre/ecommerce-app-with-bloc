@@ -22,9 +22,8 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'Cart',
-      ),
+      appBar: const CustomAppBar(title: 'Cart'),
+      bottomNavigationBar: const CustomNavBar(screen: routeName),
       body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           if (state is CartLoading) {
@@ -177,25 +176,6 @@ class CartScreen extends StatelessWidget {
             return const Text('Something went wrong');
           }
         },
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.black,
-        child: Container(
-          height: 70,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                  onPressed: () {},
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                  child: Text(
-                    'GO TO CHECKOUT',
-                    style: Theme.of(context).textTheme.displayMedium,
-                  ))
-            ],
-          ),
-        ),
       ),
     );
   }

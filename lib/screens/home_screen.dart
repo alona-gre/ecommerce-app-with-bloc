@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(
         title: 'My Shop name',
       ),
-      bottomNavigationBar: const CustomNavBar(),
+      bottomNavigationBar: const CustomNavBar(screen: routeName),
       body: SingleChildScrollView(
         child: Column(
           children: [
