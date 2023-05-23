@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/cart/cart_bloc.dart';
-import '../models/cart_product_model.dart';
+import '../models/cart_model.dart';
 import '../models/product_model.dart';
 import '../widgets/cart_product_card.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_navbar.dart';
+import '../widgets/order_summary.dart';
 
 class CartScreen extends StatelessWidget {
   static const String routeName = '/cart';
@@ -43,7 +44,7 @@ class CartScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(CartProduct().freeDeliveryFeeToString,
+                          Text(const Cart().freeDeliveryFeeToString,
                               style: Theme.of(context).textTheme.labelLarge),
                           ElevatedButton(
                             onPressed: () {
@@ -86,89 +87,7 @@ class CartScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  Column(
-                    children: [
-                      const Divider(thickness: 2),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 40.0, vertical: 10.0),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'SUBTOTAL',
-                                  style: Theme.of(context).textTheme.labelLarge,
-                                ),
-                                Text(
-                                  '\$${state.cart.subtotalToString}',
-                                  style: Theme.of(context).textTheme.labelLarge,
-                                ),
-                              ],
-                            ),
-                            const SizedBox(width: 10.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'DELIVERY FEE',
-                                  style: Theme.of(context).textTheme.labelLarge,
-                                ),
-                                Text(
-                                  '\$${state.cart.deliveryFeeToString}',
-                                  style: Theme.of(context).textTheme.labelLarge,
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Stack(
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                color: Colors.black.withAlpha(50)),
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 50,
-                            margin: const EdgeInsets.all(5.0),
-                            decoration:
-                                const BoxDecoration(color: Colors.black),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 20.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'TOTAL',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelLarge!
-                                        .copyWith(color: Colors.white),
-                                  ),
-                                  Text(
-                                    '\$${state.cart.totalToString}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelLarge!
-                                        .copyWith(
-                                          color: Colors.white,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  )
+                  const OrderSummary()
                 ],
               ),
             );

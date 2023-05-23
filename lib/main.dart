@@ -9,9 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'blocs/category/category_bloc.dart';
+import 'blocs/checkout/checkout_bloc.dart';
 import 'blocs/product/product_bloc.dart';
 import 'config/app_router.dart';
 import 'config/theme.dart';
+import 'repositories/checkout/checkout_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +33,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => CartBloc()..add(LoadCart()),
+        ),
+        BlocProvider(
+          create: (context) => CheckoutBloc(
+            cartBloc: context.read<CartBloc>(),
+            checkoutRepository: CheckoutRepository(),
+          ),
         ),
         BlocProvider(
           create: (_) => CategoryBloc(

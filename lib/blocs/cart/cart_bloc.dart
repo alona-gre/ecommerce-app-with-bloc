@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:ecommerce_app/models/cart_product_model.dart';
+import 'package:ecommerce_app/models/cart_model.dart';
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:equatable/equatable.dart';
 
@@ -21,7 +21,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     try {
       await Future<void>.delayed(const Duration(seconds: 1));
       emit(const CartLoaded(
-        cart: CartProduct(),
+        cart: Cart(),
       ));
     } catch (_) {
       emit(CartError());
@@ -36,7 +36,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       try {
         emit(
           CartLoaded(
-            cart: CartProduct(
+            cart: Cart(
               products: List.from((state as CartLoaded).cart.products)
                 ..add(event.product),
             ),
@@ -56,7 +56,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       try {
         emit(
           CartLoaded(
-            cart: CartProduct(
+            cart: Cart(
               products: List.from((this.state as CartLoaded).cart.products)
                 ..remove(event.product),
             ),

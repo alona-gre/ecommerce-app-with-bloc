@@ -1,9 +1,9 @@
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:equatable/equatable.dart';
 
-class CartProduct extends Equatable {
+class Cart extends Equatable {
   final List<Product> products;
-  const CartProduct({this.products = const <Product>[]});
+  const Cart({this.products = const <Product>[]});
 
   Map productQuantity(products) {
     var quantity = Map();

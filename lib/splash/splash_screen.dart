@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 2), () => Navigator.pushNamed(context, '/'));
+    Timer(const Duration(seconds: 1), () => Navigator.pushNamed(context, '/'));
 
     const String url =
         'https://thumbs.dreamstime.com/b/simple-gradient-fire-phoenix-bird-logo-158339374.jpg';
