@@ -52,12 +52,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     RemoveProductFromCart event,
     Emitter<CartState> emit,
   ) {
-    if (this.state is CartLoaded) {
+    if (state is CartLoaded) {
       try {
         emit(
           CartLoaded(
             cart: Cart(
-              products: List.from((this.state as CartLoaded).cart.products)
+              products: List.from((state as CartLoaded).cart.products)
                 ..remove(event.product),
             ),
           ),

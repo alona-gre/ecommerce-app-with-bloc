@@ -37,7 +37,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
     on<UpdateCheckoutEvent>(_onUpdateCheckout);
     on<ConfirmCheckoutEvent>(_onConfirmCheckout);
 
-// we are listeninng to teh cartBloc to make sure we are up to date
+// we are listeninng to the cartBloc to make sure we are up to date
     _cartSubscription = _cartBloc.stream.listen(
       (state) {
         if (state is CartLoaded) {

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../models/category_model.dart';
 import '../../models/product_model.dart';
-import '../../widgets/custom_appbar.dart';
-import '../../widgets/custom_navbar.dart';
 
 class CatalogScreen extends StatelessWidget {
   final Category category;

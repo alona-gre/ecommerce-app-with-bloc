@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/wishlist/wishlist_bloc.dart';
-import '../../models/product_model.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_navbar.dart';
 import '../../widgets/product_card.dart';

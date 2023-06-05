@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../models/product_model.dart';
 import '../screens/catalog/catalog_screen.dart';
 import '../screens/checkout/checkout_screen.dart';
+import '../screens/order_confirmation/order_confirmation_screen.dart';
 import '../screens/product/product_screen.dart';
 import '../screens/wishlist/wishlist_screen.dart';
 import '../splash/splash_screen.dart';
@@ -16,8 +17,6 @@ class AppRouter {
 
     switch (settings.name) {
       case '/':
-        return HomeScreen.route();
-      case HomeScreen.routeName:
         return HomeScreen.route();
       case SplashScreen.routeName:
         return SplashScreen.route();
@@ -35,6 +34,9 @@ class AppRouter {
 
       case CheckoutScreen.routeName:
         return CheckoutScreen.route();
+
+      case OrderConfirmationScreen.routeName:
+        return OrderConfirmationScreen.route();
 
       default:
         return _errorRoute();

@@ -11,9 +11,9 @@ abstract class CategoryState extends Equatable {
 class CategoryLoading extends CategoryState {}
 
 class CategoryLoaded extends CategoryState {
-  List<Category> categories;
+  final List<Category> categories;
 
-  CategoryLoaded({
+  const CategoryLoaded({
     this.categories = const <Category>[],
   });
 

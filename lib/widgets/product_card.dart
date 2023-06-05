@@ -27,7 +27,7 @@ class ProductCard extends StatelessWidget {
       },
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width / widthFactor,
             height: 150,
             child: Image.network(
@@ -125,7 +125,7 @@ class ProductCard extends StatelessWidget {
                               ),
                             ),
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                   ],
                 ),
               ),

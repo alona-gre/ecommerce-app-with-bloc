@@ -16,13 +16,14 @@ class HeroCarouselCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (this.product == null)
+        if (product == null) {
           Navigator.pushNamed(context, '/catalog', arguments: category);
+        }
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 5.0),
         child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            borderRadius: const BorderRadius.all(Radius.circular(5.0)),
             child: Stack(
               children: <Widget>[
                 Image.network(

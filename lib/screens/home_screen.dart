@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce_app/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,7 +7,6 @@ import '../blocs/product/product_bloc.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_navbar.dart';
 import '../widgets/hero_carousel_card.dart';
-import '../widgets/product_card.dart';
 import '../widgets/product_carousel.dart';
 import '../widgets/section_title.dart';
 

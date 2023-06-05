@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:ecommerce_app/screens/order_confirmation/order_confirmation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -194,7 +193,7 @@ class CustomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       color: Colors.black,
-      child: Container(
+      child: SizedBox(
         height: 70,
         child: (screen == '/product')
             ? AddToCartNavBar(product: product!)
@@ -202,7 +201,9 @@ class CustomNavBar extends StatelessWidget {
                 ? const GoToCheckoutNavBar()
                 : (screen == '/checkout')
                     ? const OrderNowNavBar()
-                    : const HomeNavBar(),
+                    : (screen == '/order_confirmation')
+                        ? const OrderConfirmationNavBar()
+                        : const HomeNavBar(),
       ),
     );
   }
@@ -234,7 +235,7 @@ class HomeNavBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.person, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/user');
+            Navigator.pushNamed(context, '/order_confirmation');
           },
         )
       ],
@@ -343,6 +344,7 @@ class OrderNowNavBar extends StatelessWidget {
                         ConfirmCheckoutEvent(checkout: state.checkout),
                       );
                   print('order now pushed');
+                  Navigator.pushNamed(context, '/order_confirmation');
                 },
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
                 child: Text(
@@ -355,6 +357,21 @@ class OrderNowNavBar extends StatelessWidget {
             }
           },
         ),
+      ],
+    );
+  }
+}
+
+class OrderConfirmationNavBar extends StatelessWidget {
+  const OrderConfirmationNavBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Text('This is order confirmation screen'),
       ],
     );
   }

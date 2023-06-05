@@ -42,7 +42,7 @@ class Checkout extends Equatable {
 
 // transforms a Checkout object into a map. Needed for uploading to Firestore
   Map<String, Object> toDocument() {
-    Map customerAddress = Map();
+    Map customerAddress = {};
     customerAddress['address'] = address;
     customerAddress['city'] = city;
     customerAddress['country'] = country;

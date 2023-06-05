@@ -190,40 +190,64 @@ class CheckoutScreen extends StatelessWidget {
                   'CUSTOMER INFORMATION',
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
-                _buildTextFormField((value) {
-                  context.read<CheckoutBloc>().add(
-                        UpdateCheckoutEvent(email: value),
-                      );
-                }, context, 'Email'),
-                _buildTextFormField((value) {
-                  context.read<CheckoutBloc>().add(
-                        UpdateCheckoutEvent(fullName: value),
-                      );
-                }, context, 'Name'),
-                _buildTextFormField((value) {
-                  context.read<CheckoutBloc>().add(
-                        UpdateCheckoutEvent(address: value),
-                      );
-                }, context, 'Address'),
+                _buildTextFormField(
+                  (value) {
+                    context.read<CheckoutBloc>().add(
+                          UpdateCheckoutEvent(email: value),
+                        );
+                  },
+                  context,
+                  'Email',
+                ),
+                _buildTextFormField(
+                  (value) {
+                    context.read<CheckoutBloc>().add(
+                          UpdateCheckoutEvent(fullName: value),
+                        );
+                  },
+                  context,
+                  'Name',
+                ),
+                _buildTextFormField(
+                  (value) {
+                    context.read<CheckoutBloc>().add(
+                          UpdateCheckoutEvent(address: value),
+                        );
+                  },
+                  context,
+                  'Address',
+                ),
                 Text(
                   'DELIVERY INFORMATION',
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
-                _buildTextFormField((value) {
-                  context.read<CheckoutBloc>().add(
-                        UpdateCheckoutEvent(city: value),
-                      );
-                }, context, 'City'),
-                _buildTextFormField((value) {
-                  context.read<CheckoutBloc>().add(
-                        UpdateCheckoutEvent(country: value),
-                      );
-                }, context, 'Country'),
-                _buildTextFormField((value) {
-                  context.read<CheckoutBloc>().add(
-                        UpdateCheckoutEvent(zipCode: value),
-                      );
-                }, context, 'ZipCode'),
+                _buildTextFormField(
+                  (value) {
+                    context.read<CheckoutBloc>().add(
+                          UpdateCheckoutEvent(city: value),
+                        );
+                  },
+                  context,
+                  'City',
+                ),
+                _buildTextFormField(
+                  (value) {
+                    context.read<CheckoutBloc>().add(
+                          UpdateCheckoutEvent(country: value),
+                        );
+                  },
+                  context,
+                  'Country',
+                ),
+                _buildTextFormField(
+                  (value) {
+                    context.read<CheckoutBloc>().add(
+                          UpdateCheckoutEvent(zipCode: value),
+                        );
+                  },
+                  context,
+                  'ZipCode',
+                ),
                 Text(
                   'ORDER SUMMARY',
                   style: Theme.of(context).textTheme.displayMedium,

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/cart/cart_bloc.dart';
 import '../models/cart_model.dart';
-import '../models/product_model.dart';
 import '../widgets/cart_product_card.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_navbar.dart';

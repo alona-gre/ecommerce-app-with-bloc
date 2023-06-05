@@ -2,7 +2,6 @@ import 'package:ecommerce_app/blocs/cart/cart_bloc.dart';
 import 'package:ecommerce_app/blocs/wishlist/wishlist_bloc.dart';
 import 'package:ecommerce_app/repositories/category/category_repository.dart';
 import 'package:ecommerce_app/repositories/product/product_repository.dart';
-import 'package:ecommerce_app/screens/home_screen.dart';
 import 'package:ecommerce_app/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
