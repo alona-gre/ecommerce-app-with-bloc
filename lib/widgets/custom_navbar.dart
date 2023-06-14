@@ -1,4 +1,6 @@
-import 'package:ecommerce_app/screens/order_confirmation/order_confirmation_screen.dart';
+import 'dart:io';
+
+import 'package:ecommerce_app/models/payment_method_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,6 +8,8 @@ import '../blocs/cart/cart_bloc.dart';
 import '../blocs/checkout/checkout_bloc.dart';
 import '../blocs/wishlist/wishlist_bloc.dart';
 import '/models/models.dart';
+import 'apple_pay.dart';
+import 'google_pay.dart';
 
 // class CustomNavBar extends StatelessWidget {
 //   final String screen;
@@ -235,7 +239,7 @@ class HomeNavBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.person, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/order_confirmation');
+            Navigator.pushNamed(context, '/payment_selection');
           },
         )
       ],
@@ -332,31 +336,73 @@ class OrderNowNavBar extends StatelessWidget {
           builder: (context, state) {
             if (state is CheckoutLoading) {
               return const Center(
-                child: CircularProgressIndicator(
-                  color: Colors.white,
-                ),
+                child: CircularProgressIndicator(),
               );
             }
             if (state is CheckoutLoaded) {
-              return ElevatedButton(
-                onPressed: () {
-                  context.read<CheckoutBloc>().add(
-                        ConfirmCheckoutEvent(checkout: state.checkout),
-                      );
-                  print('order now pushed');
-                  Navigator.pushNamed(context, '/order_confirmation');
-                },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                child: Text(
-                  'ORDER NOW',
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-              );
+              if (Platform.isAndroid) {
+                switch (state.paymentMethod) {
+                  case PaymentMethod.google_pay:
+                    return GooglePay(
+                      products: state.products!,
+                      total: state.total!,
+                    );
+                  case PaymentMethod.credit_card:
+                    return Container(
+                      child: Text(
+                        'Pay with Credit Card',
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayMedium!
+                            .copyWith(color: Colors.white),
+                      ),
+                    );
+                  default:
+                    return GooglePay(
+                      products: state.products!,
+                      total: state.total!,
+                    );
+                }
+              }
+              if (Platform.isIOS) {
+                switch (state.paymentMethod) {
+                  case PaymentMethod.apple_pay:
+                    return ApplePay(
+                      products: state.products!,
+                      total: state.total!,
+                    );
+                  case PaymentMethod.credit_card:
+                    return Container(
+                      child: Text(
+                        'Pay with Credit Card',
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayMedium!
+                            .copyWith(color: Colors.white),
+                      ),
+                    );
+                  default:
+                    return ApplePay(
+                      products: state.products!,
+                      total: state.total!,
+                    );
+                }
+              } else {
+                return ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/payment-selection');
+                  },
+                  child: Text(
+                    'CHOOSE PAYMENT',
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ),
+                );
+              }
             } else {
-              return const Text('Something went wrong');
+              return Text('Something went wrong');
             }
           },
-        ),
+        )
       ],
     );
   }

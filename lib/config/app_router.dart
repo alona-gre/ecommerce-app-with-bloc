@@ -7,6 +7,7 @@ import '../models/product_model.dart';
 import '../screens/catalog/catalog_screen.dart';
 import '../screens/checkout/checkout_screen.dart';
 import '../screens/order_confirmation/order_confirmation_screen.dart';
+import '../screens/payment_selection/payment_selection_screen.dart';
 import '../screens/product/product_screen.dart';
 import '../screens/wishlist/wishlist_screen.dart';
 import '../splash/splash_screen.dart';
@@ -37,6 +38,9 @@ class AppRouter {
 
       case OrderConfirmationScreen.routeName:
         return OrderConfirmationScreen.route();
+
+      case PaymentSelectionScreen.routeName:
+        return PaymentSelectionScreen.route();
 
       default:
         return _errorRoute();

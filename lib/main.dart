@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/blocs/cart/cart_bloc.dart';
+import 'package:ecommerce_app/blocs/payment/payment_bloc.dart';
 import 'package:ecommerce_app/blocs/wishlist/wishlist_bloc.dart';
 import 'package:ecommerce_app/repositories/category/category_repository.dart';
 import 'package:ecommerce_app/repositories/product/product_repository.dart';
@@ -28,16 +29,23 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => WishlistBloc()..add(StartWishlist()),
+          create: (_) => CartBloc()..add(LoadCart()),
         ),
         BlocProvider(
-          create: (_) => CartBloc()..add(LoadCart()),
+          create: (_) => PaymentBloc()
+            ..add(
+              LoadPaymentMethodEvent(),
+            ),
         ),
         BlocProvider(
           create: (context) => CheckoutBloc(
             cartBloc: context.read<CartBloc>(),
+            paymentBloc: context.read<PaymentBloc>(),
             checkoutRepository: CheckoutRepository(),
           ),
+        ),
+        BlocProvider(
+          create: (_) => WishlistBloc()..add(StartWishlist()),
         ),
         BlocProvider(
           create: (_) => CategoryBloc(
