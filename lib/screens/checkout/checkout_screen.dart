@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/checkout/checkout_bloc.dart';
+import '../../widgets/custom_text_form_field.dart';
 import '../../widgets/order_summary.dart';
 
 class CheckoutScreen extends StatelessWidget {
@@ -41,63 +42,57 @@ class CheckoutScreen extends StatelessWidget {
                   'CUSTOMER INFORMATION',
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
-                _buildTextFormField(
-                  (value) {
+                CustomTextFormField(
+                  labelText: 'Email',
+                  onChanged: (value) {
                     context.read<CheckoutBloc>().add(
                           UpdateCheckoutEvent(email: value),
                         );
                   },
-                  context,
-                  'Email',
                 ),
-                _buildTextFormField(
-                  (value) {
+                CustomTextFormField(
+                  labelText: 'Name',
+                  onChanged: (value) {
                     context.read<CheckoutBloc>().add(
                           UpdateCheckoutEvent(fullName: value),
                         );
                   },
-                  context,
-                  'Name',
-                ),
-                _buildTextFormField(
-                  (value) {
-                    context.read<CheckoutBloc>().add(
-                          UpdateCheckoutEvent(address: value),
-                        );
-                  },
-                  context,
-                  'Address',
                 ),
                 Text(
                   'DELIVERY INFORMATION',
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
-                _buildTextFormField(
-                  (value) {
+                CustomTextFormField(
+                  labelText: 'Address',
+                  onChanged: (value) {
+                    context.read<CheckoutBloc>().add(
+                          UpdateCheckoutEvent(address: value),
+                        );
+                  },
+                ),
+                CustomTextFormField(
+                  labelText: 'City',
+                  onChanged: (value) {
                     context.read<CheckoutBloc>().add(
                           UpdateCheckoutEvent(city: value),
                         );
                   },
-                  context,
-                  'City',
                 ),
-                _buildTextFormField(
-                  (value) {
+                CustomTextFormField(
+                  labelText: 'Country',
+                  onChanged: (value) {
                     context.read<CheckoutBloc>().add(
                           UpdateCheckoutEvent(country: value),
                         );
                   },
-                  context,
-                  'Country',
                 ),
-                _buildTextFormField(
-                  (value) {
+                CustomTextFormField(
+                  labelText: 'ZipCode',
+                  onChanged: (value) {
                     context.read<CheckoutBloc>().add(
                           UpdateCheckoutEvent(zipCode: value),
                         );
                   },
-                  context,
-                  'ZipCode',
                 ),
                 const SizedBox(height: 20),
                 Container(
@@ -142,39 +137,6 @@ class CheckoutScreen extends StatelessWidget {
           }
         }),
       ),
-    );
-  }
-
-  Padding _buildTextFormField(
-    Function(String)? onChanged,
-    BuildContext context,
-    String labelText,
-  ) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(children: [
-        SizedBox(
-          width: 75,
-          child: Text(
-            labelText,
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
-        ),
-        Expanded(
-          child: TextFormField(
-            onChanged: onChanged,
-            decoration: const InputDecoration(
-              isDense: true,
-              contentPadding: EdgeInsets.only(left: 10.0),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ]),
     );
   }
 }

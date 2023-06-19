@@ -6,6 +6,17 @@ import '../blocs/wishlist/wishlist_bloc.dart';
 import '/models/models.dart';
 
 class ProductCard extends StatelessWidget {
+  final Product product;
+  final int? quantity;
+  final double widthFactor;
+  final double height;
+  final bool isCatalog;
+  final bool isWishlist;
+  final bool isCart;
+  final bool isSummary;
+  final Color iconColor;
+  final Color fontColor;
+
   const ProductCard.catalog({
     Key? key,
     required this.product,
@@ -61,17 +72,6 @@ class ProductCard extends StatelessWidget {
     this.iconColor = Colors.black,
     this.fontColor = Colors.black,
   }) : super(key: key);
-
-  final Product product;
-  final int? quantity;
-  final double widthFactor;
-  final double height;
-  final bool isCatalog;
-  final bool isWishlist;
-  final bool isCart;
-  final bool isSummary;
-  final Color iconColor;
-  final Color fontColor;
 
   @override
   Widget build(BuildContext context) {
@@ -232,6 +232,12 @@ class ProductInformation extends StatelessWidget {
 }
 
 class ProductActions extends StatelessWidget {
+  final Product product;
+  final bool isCatalog;
+  final bool isWishlist;
+  final bool isCart;
+  final Color iconColor;
+  final int? quantity;
   const ProductActions({
     Key? key,
     required this.product,
@@ -241,13 +247,6 @@ class ProductActions extends StatelessWidget {
     required this.iconColor,
     this.quantity,
   }) : super(key: key);
-
-  final Product product;
-  final bool isCatalog;
-  final bool isWishlist;
-  final bool isCart;
-  final Color iconColor;
-  final int? quantity;
 
   @override
   Widget build(BuildContext context) {
