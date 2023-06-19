@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/widgets/order_summary.dart';
 import 'package:ecommerce_app/widgets/order_summary_product_card.dart';
+import 'package:ecommerce_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/custom_appbar.dart';
@@ -68,7 +69,7 @@ class OrderConfirmationScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
                   const SizedBox(height: 10.0),
-                  OrderSummary(),
+                  const OrderSummary(),
                   const Divider(thickness: 2),
                   const SizedBox(height: 5),
                   ListView(
@@ -76,11 +77,11 @@ class OrderConfirmationScreen extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      OrderSummaryProductCard(
+                      ProductCard.summary(
                         product: Product.products[0],
                         quantity: 2,
                       ),
-                      OrderSummaryProductCard(
+                      ProductCard.summary(
                         product: Product.products[1],
                         quantity: 3,
                       ),

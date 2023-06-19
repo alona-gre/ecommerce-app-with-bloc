@@ -239,7 +239,7 @@ class HomeNavBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.person, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/payment_selection');
+            Navigator.pushNamed(context, '/order_confirmation');
           },
         )
       ],

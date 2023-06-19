@@ -21,7 +21,7 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: product.name),
-      bottomNavigationBar: const CustomNavBar(screen: routeName),
+      bottomNavigationBar: CustomNavBar(screen: routeName, product: product),
       body: ListView(children: [
         CarouselSlider(
           options: CarouselOptions(

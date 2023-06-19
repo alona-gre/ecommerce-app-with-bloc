@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -71,7 +72,7 @@ class CartScreen extends StatelessWidget {
                               .keys
                               .length,
                           itemBuilder: (context, index) {
-                            return CartProductCard(
+                            return ProductCard.cart(
                               product: state.cart
                                   .productQuantity(state.cart.products)
                                   .keys
