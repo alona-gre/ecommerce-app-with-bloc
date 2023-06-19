@@ -1,11 +1,7 @@
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:ecommerce_app/widgets/order_summary.dart';
-import 'package:ecommerce_app/widgets/order_summary_product_card.dart';
 import 'package:ecommerce_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-
-import '../../widgets/custom_appbar.dart';
-import '../../widgets/custom_navbar.dart';
 
 class OrderConfirmationScreen extends StatelessWidget {
   const OrderConfirmationScreen({super.key});
