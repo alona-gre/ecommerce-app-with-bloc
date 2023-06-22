@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/models/payment_method_model.dart';
 import 'package:ecommerce_app/models/product_model.dart';
 import 'package:equatable/equatable.dart';
 
