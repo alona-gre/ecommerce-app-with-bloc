@@ -17,7 +17,7 @@ class ApplePay extends StatelessWidget {
   Widget build(BuildContext context) {
     // for each product in the list we are gonna have
     // a different PaymentItem object
-    var _paymentItems = products
+    var paymentItems = products
         .map(
           (product) => PaymentItem(
             label: product.name,
@@ -28,7 +28,7 @@ class ApplePay extends StatelessWidget {
         )
         .toList();
 
-    _paymentItems.add(
+    paymentItems.add(
       PaymentItem(
         label: 'Total',
         amount: total,
@@ -46,7 +46,7 @@ class ApplePay extends StatelessWidget {
       child: ApplePayButton(
         paymentConfigurationAsset: 'payment_profile_apple_pay.json',
         onPaymentResult: onApplePayResult,
-        paymentItems: _paymentItems,
+        paymentItems: paymentItems,
         style: ApplePayButtonStyle.white,
         type: ApplePayButtonType.inStore,
         margin: const EdgeInsets.only(top: 10),

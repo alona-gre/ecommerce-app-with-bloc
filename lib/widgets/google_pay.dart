@@ -17,7 +17,7 @@ class GooglePay extends StatelessWidget {
   Widget build(BuildContext context) {
     // for each product in the list we are gonna have
     // a different PaymentItem object
-    var _paymentItems = products
+    var paymentItems = products
         .map(
           (product) => PaymentItem(
             label: product.name,
@@ -28,7 +28,7 @@ class GooglePay extends StatelessWidget {
         )
         .toList();
 
-    _paymentItems.add(
+    paymentItems.add(
       PaymentItem(
         label: 'Total',
         amount: total,
@@ -46,7 +46,7 @@ class GooglePay extends StatelessWidget {
       child: GooglePayButton(
         paymentConfigurationAsset: 'payment_profile_google_pay.json',
         onPaymentResult: onGooglePayResult,
-        paymentItems: _paymentItems,
+        paymentItems: paymentItems,
         type: GooglePayButtonType.pay,
         margin: const EdgeInsets.only(top: 10),
         loadingIndicator: const CircularProgressIndicator(),

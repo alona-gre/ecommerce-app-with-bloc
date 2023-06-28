@@ -23,7 +23,7 @@ class OrderConfirmationScreen extends StatelessWidget {
       appBar: const CustomAppBar(
         title: 'Order confirmation',
       ),
-      bottomNavigationBar: CustomNavBar(screen: routeName),
+      bottomNavigationBar: const CustomNavBar(screen: routeName),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Column(

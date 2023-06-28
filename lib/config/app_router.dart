@@ -1,4 +1,6 @@
 import 'package:ecommerce_app/models/category_model.dart';
+import 'package:ecommerce_app/screens/auth/login_screen.dart';
+import 'package:ecommerce_app/screens/auth/register_screen.dart';
 import 'package:ecommerce_app/screens/cart_screen.dart';
 import 'package:ecommerce_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +43,12 @@ class AppRouter {
 
       case PaymentSelectionScreen.routeName:
         return PaymentSelectionScreen.route();
+
+      case RegisterScreen.routeName:
+        return RegisterScreen.route();
+
+      case LoginScreen.routeName:
+        return LoginScreen.route();
 
       default:
         return _errorRoute();

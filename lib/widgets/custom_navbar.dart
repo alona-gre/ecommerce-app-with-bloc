@@ -239,7 +239,7 @@ class HomeNavBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.person, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, '/order_confirmation');
+            Navigator.pushNamed(context, '/registration');
           },
         )
       ],
@@ -399,7 +399,7 @@ class OrderNowNavBar extends StatelessWidget {
                 );
               }
             } else {
-              return Text('Something went wrong');
+              return const Text('Something went wrong');
             }
           },
         )

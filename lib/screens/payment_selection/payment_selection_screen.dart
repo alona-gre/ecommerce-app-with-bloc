@@ -27,9 +27,9 @@ class PaymentSelectionScreen extends StatelessWidget {
       appBar: const CustomAppBar(
         title: 'Select a payment method',
       ),
-      bottomNavigationBar: CustomNavBar(screen: routeName),
+      bottomNavigationBar: const CustomNavBar(screen: routeName),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: BlocBuilder<PaymentBloc, PaymentState>(
           builder: (context, state) {
             if (state is PaymentLoading) {

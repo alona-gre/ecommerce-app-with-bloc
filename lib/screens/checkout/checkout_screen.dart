@@ -99,7 +99,7 @@ class CheckoutScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   height: 60,
                   alignment: Alignment.bottomCenter,
-                  decoration: BoxDecoration(color: Colors.black),
+                  decoration: const BoxDecoration(color: Colors.black),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [

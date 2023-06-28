@@ -163,7 +163,7 @@ class ProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: adjWidth,
       height: height,
       child: Image.network(
