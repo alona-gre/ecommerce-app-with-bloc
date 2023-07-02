@@ -20,11 +20,11 @@ class AuthState extends Equatable {
 //  we're gonna pass these as input to the original constructor:
   const AuthState.authenticated({
     required auth.User authUser,
-    required User user,
+    //required User user,
   }) : this._(
           status: AuthStatus.authenticated,
           authUser: authUser,
-          user: user,
+          // user: user,
         );
 
 // if the state of the user is unauthenticated, it should return a basic named constructor:

@@ -58,7 +58,7 @@ class HeroCarouselCard extends StatelessWidget {
                           //   fontSize: 20.0,
                           //   fontWeight: FontWeight.bold,
                           // ),
-                          Theme.of(context).textTheme.headlineMedium!.copyWith(
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
                                 color: Colors.white,
                               ),
                     ),

@@ -31,13 +31,22 @@ TextTheme textTheme() {
       fontWeight: FontWeight.bold,
     ),
     headlineMedium: TextStyle(
-      color: Colors.black,
       fontSize: 28,
       fontWeight: FontWeight.bold,
+      shadows: [
+        Shadow(
+          color: Colors.black,
+          offset: Offset(0, -8),
+        ),
+      ],
+      color: Colors.transparent,
+      decoration: TextDecoration.underline,
+      decorationColor: Colors.black,
+      decorationThickness: 3,
     ),
     headlineSmall: TextStyle(
       color: Colors.black,
-      fontSize: 24,
+      fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
     bodyLarge: TextStyle(

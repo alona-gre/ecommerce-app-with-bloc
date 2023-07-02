@@ -12,19 +12,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      title: Container(
-        color: Colors.black,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
-        child: Text(
-          title,
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: Colors.white),
-        ),
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.headlineMedium!,
       ),
       iconTheme: const IconThemeData(color: Colors.black),
       actions: [
@@ -34,6 +24,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
           icon: const Icon(
             Icons.favorite,
+            color: Colors.black,
+          ),
+        ),
+        IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/signout');
+          },
+          icon: const Icon(
+            Icons.logout_rounded,
             color: Colors.black,
           ),
         ),

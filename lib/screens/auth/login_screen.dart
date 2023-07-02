@@ -5,7 +5,7 @@ import 'package:ecommerce_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   static const String routeName = '/login';
@@ -21,28 +21,7 @@ class LoginScreen extends StatefulWidget {
         });
   }
 
-  @override
-  State<LoginScreen> createState() => _LoginViewState();
-}
-
-class _LoginViewState extends State<LoginScreen> {
   // late final TextEditingController _email;
-  // late final TextEditingController _password;
-
-  // @override
-  // void initState() {
-  //   _email = TextEditingController();
-  //   _password = TextEditingController();
-  //   super.initState();
-  // }
-
-  // @override
-  // void dispose() {
-  //   _email.dispose();
-  //   _password.dispose();
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     // return BlocListener<AuthBloc, AuthState>(
